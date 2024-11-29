@@ -112,14 +112,18 @@
 //beta version
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Livingdetails from '../Components/Livingdetails';
 
 function Livingplace(props) {
+
+
+
+  const navigate = useNavigate();
+
   return (
     <Link to={Livingdetails}>
-      {/* For mobile: keep two cards per row (grid-cols-2).
-          For tablet (md) and above: switch to one card per row (grid-cols-1). */}
+     
       <div className="relative grid grid-cols-2 md:grid-cols-1 gap-4 w-full max-w-full sm:max-w-[16rem] md:max-w-[21rem] lg:max-w-[21rem] mx-auto rounded-xl bg-gray-100 bg-clip-border text-gray-700 shadow-lg">
         <div className="relative mx-2 mt-4 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
           <img className="h-40 w-full object-cover md:h-48 lg:h-60" src={props.img} alt="ui/ux review check" />
@@ -149,18 +153,19 @@ function Livingplace(props) {
             {props.description}
           </p>
           <div className="inline-flex flex-wrap items-center gap-2 mt-2 group">
-            {/* Icons here */}
+          
           </div>
         </div>
         <div className="px-6 pb-2">
-          <Link to='/placeInfo'>
+          
             <button
+               onClick={() => navigate('/placeInfo')}
               className="block w-full select-none rounded-lg bg-gray-900 py-3.5 px-4 text-center align-middle font-sans text-sm font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20"
               type="button"
             >
               Reserve
             </button>
-          </Link>
+         
         </div>
       </div>
     </Link>

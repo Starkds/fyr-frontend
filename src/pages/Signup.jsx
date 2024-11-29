@@ -1,15 +1,34 @@
-import React from 'react'
+import React  from 'react'
 import { useState } from 'react'
-
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { API_ENDPOINT1 } from '../utils/constant';
 function Signup() {
    
 const [name , setName] = useState('');
-const [number , setNumber] = useState('');
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
+const [role,setRole] = useState('');
 
+const navigate = useNavigate();
 
+const submitHandler = async (e) =>{
+    e.preventDefault();
+   
+try {
+    const response = await axios.post(`${API_ENDPOINT1}/signup`,{username:name , email,password , role});
+   console.log( "user signed up" ,response.data);
+   if(role == 'User'){
 
+    navigate('/');
+   }else if(role == 'Tenant'){
+    navigate('/TenantRoomDetails');
+   }
+} catch (error) {
+    console.error('Error during signup :',  error.message);   
+}
+
+} 
 
 
 
@@ -20,7 +39,7 @@ const [password, setPassword] = useState('');
     <div className="mx-auto w-full max-w-[550px] bg-white border-2  p-10 rounded-sm  border-solid border-black">
        
       
-       <form>
+       <form onSubmit={submitHandler}>
             
             <div className='w-full px-3 sm:w-1/2 '>
                <button
@@ -49,7 +68,7 @@ const [password, setPassword] = useState('');
    </div>
 
          <div className="mb-5   ">
-             <label for="name" className="mb-3 block text-base font-medium text-[#07074D]">
+             <label htmlFor="name" className="mb-3 block text-base font-medium text-[#07074D]">
                  Full Name
              </label>
              <input type="text" onChange={(e) =>{ setName(e.target.value)}} value={name}  name="name" id="name" placeholder="Full Name"
@@ -57,7 +76,7 @@ const [password, setPassword] = useState('');
          </div>
 
          <div className="mb-5">
-             <label for="email" className="mb-3 block text-base font-medium text-[#07074D]">
+             <label htmlFor="email" className="mb-3 block text-base font-medium text-[#07074D]">
                  Email Address
              </label>
              <input type="email"  onChange={(e) =>{ setEmail(e.target.value)}}  value={email} name="email" id="email" placeholder="Enter your email"
@@ -66,16 +85,15 @@ const [password, setPassword] = useState('');
 
 
          <div className="mb-5">
-             <label for="phone" className="mb-3 block text-base font-medium text-[#07074D]">
-                 Phone Number
+             <label htmlFor="email" className="mb-3 block text-base font-medium text-[#07074D]">
+                 Role
              </label>
-             <input type="number"  onChange={(e) => {setNumber(e.target.value)}} value={number} name="phone" id="phone" placeholder="Enter your phone number"
+             <input type="text"  onChange={(e) =>{ setRole(e.target.value)}}  value={role} name="role" id="role" placeholder="Role"
                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
          </div>
-
       
                 <div className="mb-5" >
-         <label for="password" className="b-3 block text-base font-medium text-[#07074D]">
+         <label htmlFor="password" className="b-3 block text-base font-medium text-[#07074D]">
              Password
              </label>
                           

@@ -78,11 +78,17 @@
 
 //beta version
 
-import React from 'react';
+import React, { useState,useRef, useEffect } from 'react';
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import { FaSearchLocation } from "react-icons/fa";
 
+
 function Header() {
+
+  
+
+  
+
   return (
     <>
       <div className="w-full max-w-6xl h-28 z-10 absolute top-20 right-0 mt-0 bg-white flex justify-end items-center p-5 sm:px-6 sm:py-3 mx-auto">
