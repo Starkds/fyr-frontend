@@ -1,7 +1,6 @@
 import Navbar from "./Components/Navbar"
 import Header from "./Components/Header"
 
-import Sidebar from "./Components/Sidebar"
 import Login from "./pages/Login"
 import Tenantform from "./Tenant/Tenantform"
 import Signup from "./pages/Signup"
