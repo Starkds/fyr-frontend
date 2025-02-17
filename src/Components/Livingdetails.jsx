@@ -18,7 +18,7 @@ function Livingdetails() {
     const fetchedCard = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3453/house/showallhouses",{
+          "https://fyr-2eoq.onrender.com/house/showallhouses",{
             params:{
               limit:15
 
