@@ -51,7 +51,7 @@ function Livingdetails() {
                 <div className="relative mx-2 mt-4 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
                   <img
                     className="h-40 w-full object-cover md:h-48 lg:h-60"
-                    src={`http://localhost:3453${card.images[0]}`}
+                    src={`https://fyr-2eoq.onrender.com${card.images[0]}`}
                     alt="ui/ux review check"
                   />
                   <div className="absolute inset-0 w-full h-full bg-gradient-to-tr from-transparent via-transparent to-black/60"></div>
