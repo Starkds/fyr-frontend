@@ -126,7 +126,7 @@ function TenantRoomDetails() {
     });
 
     try {
-      const response = await axios.post(`http://localhost:3453/house/upload`, data, {
+      const response = await axios.post(`https://fyr-2eoq.onrender.com/house/upload`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
