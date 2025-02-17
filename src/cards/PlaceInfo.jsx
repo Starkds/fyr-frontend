@@ -381,7 +381,7 @@ function PlaceInfo() {
     const fetchedDetailed = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3453/house/${houseid}`
+          `https://fyr-2eoq.onrender.com/house/${houseid}`
         );
         console.log(response);
         setCardDetails(response.data);
