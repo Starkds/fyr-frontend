@@ -403,7 +403,7 @@ function PlaceInfo() {
         const amount = cardDetails.price;
        
 
-        const response = await axios.post(`http://localhost:3453/payment/order`,{amount , houseId:houseid},
+        const response = await axios.post(`https://fyr-2eoq.onrender.com/payment/order`,{amount , houseId:houseid},
           {
             headers:{
               "Content-Type": "application/json", // Ensures the server interprets the request body as JSON
